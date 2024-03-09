@@ -16,6 +16,22 @@
     /*display: flex;*/
 }
 
+.sidebar-item {
+    display: flex;
+    align-items: center;
+}
+
+.fa-sharp {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.sidebar-text {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
 .stories {
     width: 80vw;
     height: 100vw;
