@@ -13,7 +13,7 @@
     border-right: 0.5px solid black;
     height: 100vw;
     overflow: none;
-    display: flex;
+    /*display: flex;*/
 }
 
 .stories {
@@ -21,4 +21,13 @@
     height: 100vw;
     overflow: scroll;
     display: flex;
+}
+
+#brand-logo {
+    width: 10vw;
+    max-width: 500px;
+    padding: 5px;
+    margin: 10px 5px 10px 5px;
+    box-sizing: border-box;
+    justify-self: left;
 }
