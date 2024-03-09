@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    overflow: hidden;
+    display: flex;
+}
+
+.sidebar {
+    width: 20vw;
+    border-right: 0.5px solid black;
+    height: 100vw;
+    overflow: none;
+    display: flex;
+}
+
+.stories {
+    width: 80vw;
+    height: 100vw;
+    overflow: scroll;
+    display: flex;
+}
