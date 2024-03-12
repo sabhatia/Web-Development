@@ -49,7 +49,6 @@
     width: 80vw;
     height: 100vw;
     overflow: scroll;
-    display: flex;
 }
 
 .stories {
@@ -57,7 +56,13 @@
 }
 
 .cards {
-    display: flex;
-    flex-direction: column;
     box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+}
+
+.cards > img {
+    max-width: 450px;
+    box-shadow: 1px 10px 10px 1px grey;
+
 }
