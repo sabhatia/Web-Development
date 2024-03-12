@@ -61,7 +61,10 @@
     padding: 10px 10px 10px 10px;
 }
 
-.cards > img {
+.card {
+    padding-bottom: 25px;
+}
+.card > img {
     max-width: 450px;
     box-shadow: 1px 10px 10px 1px grey;
 
