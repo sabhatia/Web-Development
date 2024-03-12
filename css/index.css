@@ -52,7 +52,7 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
 }
 
 .stories {
@@ -60,11 +60,10 @@
     overflow-y: hidden;
     white-space: nowrap;
     width: 450px;
-    min-height: 150px;
+    min-height: 140px;
     padding-top: 20px;
     box-sizing: border-box;
     box-shadow: 1px 10px 10px 1px grey;
-    align-items: center;
 }
 
 .story {
@@ -84,10 +83,14 @@
 }
 
 .scroll-arrow {
-    top: 60px;
-    background-color: aliceblue;
+    position:absolute;
+    top: 30px;
+    right: 350px;
+    background-color: rgb(171, 179, 187);
     color: black;
-    opacity: 60%;
+    font-weight: bolder;
+    font-size: 50px;
+    opacity: 80%;
     border-radius: 50px;
 }
 
@@ -95,7 +98,6 @@
     box-sizing: border-box;
     border-radius: 10px;
     padding: 10px 10px 10px 10px;
-    position: relative;
 }
 
 .card {
