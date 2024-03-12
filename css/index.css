@@ -60,7 +60,8 @@
     overflow-y: hidden;
     white-space: nowrap;
     width: 100%;
-    min-height: 100px;
+    min-height: 120px;
+    padding-top: 20px;
 }
 
 .story {
@@ -70,7 +71,7 @@
 }
 
 .story > p {
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .story > img {
