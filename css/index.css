@@ -26,7 +26,9 @@
 }
 
 .sidebar-items {
-    align-items: center; /* Keeps content centered vertically */
+     /* Keeps content centered vertically */
+    align-items: center;
+    flex-direction: column;
 }
 
 .fa-sharp {
@@ -43,9 +45,19 @@
     padding-left: 40px;
 }
 
-.stories {
+.main {
     width: 80vw;
     height: 100vw;
     overflow: scroll;
     display: flex;
+}
+
+.stories {
+
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
