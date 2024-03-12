@@ -51,11 +51,32 @@
     overflow-x: none;
     overflow-y: scroll;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
 
 .stories {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    min-height: 100px;
+}
 
+.story {
+    display: inline-block;
+    text-align: center;
+    padding-right: 10px;
+}
+
+.story > p {
+    font-size: 12px;
+}
+
+.story > img {
+    width: 70px;
+    height: 70px;
+    border-radius: 70%
 }
 
 .cards {
