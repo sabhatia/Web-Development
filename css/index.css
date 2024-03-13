@@ -120,11 +120,14 @@
     padding: 10px 10px 10px 10px;
 }
 
-.card {
-    padding-bottom: 30px;
-}
 .card > img {
     max-width: 450px;
     box-shadow: 1px 10px 10px 1px grey;
 
+}
+
+.card-icons {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
 }
