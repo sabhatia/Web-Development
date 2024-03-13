@@ -79,7 +79,7 @@
 .story > img {
     width: 70px;
     height: 70px;
-    border-radius: 70%
+    border-radius: 70%;
 }
 
 .scroll-arrow {
@@ -92,6 +92,12 @@
     font-size: 50px;
     opacity: 80%;
     border-radius: 50px;
+}
+
+.card-owner > img {
+    max-height: 70px;
+    width: 70px;
+    border-radius: 70%;
 }
 
 .cards {
