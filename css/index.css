@@ -129,5 +129,12 @@
 .card-icons {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 30px;
+    font-size: 25px;
+}
+
+.card-comments {
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 200;
+    padding-bottom: 20px;
 }
