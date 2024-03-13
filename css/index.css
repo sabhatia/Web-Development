@@ -73,7 +73,9 @@
 }
 
 .story > p {
-    font-size: 15px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 200;
 }
 
 .story > img {
@@ -94,10 +96,22 @@
     border-radius: 50px;
 }
 
-.card-owner > img {
+.card-author {
+    display:flex;
+    line-height: 70px;
+}
+.card-author > img {
     max-height: 70px;
     width: 70px;
     border-radius: 70%;
+}
+
+.card-author > p {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 70px;
+    align-items: center;
+    padding-left: 10px;
 }
 
 .cards {
