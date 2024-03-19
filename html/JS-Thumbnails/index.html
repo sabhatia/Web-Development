@@ -5,20 +5,35 @@
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 </head>
 <body>
-  <h1>This is an HTML page!</h1>
-  <p>See the magic of JavaScript below:</p>
-  <div class = "thumbnail"> Beachside
-    <br>
-    <img src="../../images/Beachside.jpeg" height="50px" width="50px">
-  </div>
+  <h1>Expanding Thumbnails</h1>
+  <p>Click on a thumbnail below to expand it:</p>
+  <ul id = "thumbnails">
+    <li><img src="../../images/Beachside.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
+  </ul>
+  <div id="expanded-image"></div>
   <script>
-    console.log('Hello World!');
-    $("p").append("<br/><br/>Click on a thumbnail to expand");
-
     $(document).ready(function() {
-        
+        console.log("Document Ready.")
+        $("#thumbnails > li > img").click(function() {
+            console.log("Thumbnail Clicked.")
+            var smallImg = $(this).attr("src");
+            console.log(smallImg + " clicked.")
+            $("#expanded-image").html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
+            $("#expanded-image").fadeIn(300); // Fade in animation (optional)
+        });
     }); 
 
   </script>
+  <style>
+    .thumbnail {
+        height: 50px;
+        width: auto;
+    }
+
+    .full-image {
+        height: 400px;
+        width: auto;
+    }
+  </style>
 </body>
 </html>
