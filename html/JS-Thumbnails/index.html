@@ -5,10 +5,14 @@
   <meta charset="utf-8"> 
   <title>Hello World Example</title>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-</head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"></head>
 <body>
+  <i class="fa-solid fa-font"></i>
   <h1>Expanding Thumbnails</h1>
-  <p>Click on a thumbnail below to expand it:</p>
+  <p>Usage:
+    <br>1. Click on a thumbnail below to expand or hide it.
+    <br>2. Click the enlarged image to make it disappear.
+ </p>
   <ul id = "thumbnails">
     <li><img src="../../images/Beachside.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
     <li><img src="../../images/Desertscape.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
@@ -21,15 +25,25 @@
   <script>
     $(document).ready(function() {
 
+        var isExpandedVisible = false;
+
         /* Check if a thumbnail was clicked */
         $("#thumbnails > li > img").click(function() {
             var smallImg = $(this).attr("src");
             console.log(smallImg + " clicked.")
-            $("#expanded-image").html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
-            $("#expanded-image").fadeIn(500) // Fade in animation (optional)
+
+            if (!isExpandedVisible) {
+                $("#expanded-image").html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
+                $("#expanded-image").fadeIn(500) // Fade in animation (optional)
+                isExpandedVisible = true;
+            } else {
+                console.log("Hiding expanded image...")
+                $("#expanded-image").fadeOut(500);
+                isExpandedVisible = false;
+            }
         });
 
-        /* Check if a full image was clicked */
+        /* Check if a full image was clicked - Hide it if so */
         $("#expanded-image").click(function() {
             console.log("Expanded Image clicked. Hiding...")
             $(this).fadeOut(500);
@@ -38,9 +52,10 @@
 
   </script>
   <style>
-    title {
-        font-family: Arial, Helvetica, sans-serif;
+    head, body {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
+
     .thumbnail {
         height: 50px;
         width: auto;
@@ -50,6 +65,10 @@
         box-sizing: border-box;
         height: 400px;
         width: auto;
+    }
+
+    #expanded-image {
+        display: none;
     }
   </style>
 </body>
