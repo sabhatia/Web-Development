@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <meta charset="utf-8"> 
   <title>Hello World Example</title>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 </head>
@@ -9,28 +11,43 @@
   <p>Click on a thumbnail below to expand it:</p>
   <ul id = "thumbnails">
     <li><img src="../../images/Beachside.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
+    <li><img src="../../images/Desertscape.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
+    <li><img src="../../images/Mountainside.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
+    <li><img src="../../images/Sunrise.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
+    <li><img src="../../images/Riverscape.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
+    <li><img src="../../images/Riverside (2).jpg" class='thumbnail' alt="Sunset at the Beach"></li>
   </ul>
   <div id="expanded-image"></div>
   <script>
     $(document).ready(function() {
-        console.log("Document Ready.")
+
+        /* Check if a thumbnail was clicked */
         $("#thumbnails > li > img").click(function() {
-            console.log("Thumbnail Clicked.")
             var smallImg = $(this).attr("src");
             console.log(smallImg + " clicked.")
             $("#expanded-image").html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
-            $("#expanded-image").fadeIn(300); // Fade in animation (optional)
+            $("#expanded-image").fadeIn(500) // Fade in animation (optional)
+        });
+
+        /* Check if a full image was clicked */
+        $("#expanded-image").click(function() {
+            console.log("Expanded Image clicked. Hiding...")
+            $(this).fadeOut(500);
         });
     }); 
 
   </script>
   <style>
+    title {
+        font-family: Arial, Helvetica, sans-serif;
+    }
     .thumbnail {
         height: 50px;
         width: auto;
     }
 
     .full-image {
+        box-sizing: border-box;
         height: 400px;
         width: auto;
     }
