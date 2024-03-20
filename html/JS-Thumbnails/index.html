@@ -31,13 +31,9 @@
         $("#thumbnails > li > img").click(function() {
           var smallImg = $(this).attr("src");
           var fullImg =  $("#expanded-image")        
-          /* 
-          * We expand the image under two conditions
-          * 1. The thumbnail clicked is different
-          * 2. Same thumbnail, but there is no expanded image
-          */
-          if (prevImg != smallImg) {
 
+          /* If the user has clicked a new thumbnail, let's show that one */
+          if (prevImg != smallImg) {
             /* Show the expanded image for the current thumbnail */
             fullImg.html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
             fullImg.hide(); // Do this so you fadein from a clean slate
