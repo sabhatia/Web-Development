@@ -12,8 +12,8 @@
   <p>Usage:
     <br>1. Click on a thumbnail below to expand or hide it.
     <br>2. Click the enlarged image to make it disappear.
- </p>
-  <ul id = "thumbnails">
+  </p>
+  <ul id="thumbnails">
     <li><img src="../../images/Beachside.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
     <li><img src="../../images/Desertscape.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
     <li><img src="../../images/Mountainside.jpeg" class='thumbnail' alt="Sunset at the Beach"></li>
@@ -25,28 +25,61 @@
   <script>
     $(document).ready(function() {
 
-        var isExpandedVisible = false;
+        var isImgShrunk = true;
+        var prevImg = null;
 
-        /* Check if a thumbnail was clicked */
+
+        function hideFullImage ()
+        {
+          console.log('hideFullImage')
+          $("#expanded-image").fadeOut(500);
+          isImgShrunk = true;
+
+        }
+
+        function displayFullImage (lastImage, currentImage) 
+        {
+          console.log('displayFullImage:\n<Prev: ' + prevImg + '> <Curr: ' + currentImage)
+          $("#expanded-image").html("<img src='" + currentImage + "' alt='Expanded Image' class='full-image'>");
+          $("#expanded-image").fadeIn(500) // Fade in animation (optional)
+          isImgShrunk = false;
+        }
+
+        /* CLICK: Thumbnail */
         $("#thumbnails > li > img").click(function() {
-            var smallImg = $(this).attr("src");
-            console.log(smallImg + " clicked.")
+          var smallImg = $(this).attr("src");
+          var fullImg =  $("#expanded-image")        
+          /* 
+          * We expand the image under two conditions
+          * 1. The thumbnail clicked is different
+          * 2. Same thumbnail, but there is no expanded image
+          */
+          if (prevImg != smallImg) {
 
-            if (!isExpandedVisible) {
-                $("#expanded-image").html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
-                $("#expanded-image").fadeIn(500) // Fade in animation (optional)
-                isExpandedVisible = true;
-            } else {
-                console.log("Hiding expanded image...")
-                $("#expanded-image").fadeOut(500);
-                isExpandedVisible = false;
+            /* Hide the old image - if it is displayed */
+            if (!isImgShrunk) {
+              fullImg.hide();
+              isImgShrunk = true;
             }
+
+            /* Show the expanded image for the current thumbnail */
+           fullImg.html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
+            fullImg.fadeIn(500) // Fade in animation (optional)
+            isImgShrunk = false;
+          } else {
+            /* Same thumbnail - just toggle the visibility */
+            $("#expanded-image").fadeToggle(500);
+            isImgShrunk = fullImg.is(':hidden');
+          }
+
+          /* Lets record the image we clicked for next time */
+          prevImg = smallImg;
         });
 
-        /* Check if a full image was clicked - Hide it if so */
+        /* CLICK: Full-Image */
         $("#expanded-image").click(function() {
-            console.log("Expanded Image clicked. Hiding...")
-            $(this).fadeOut(500);
+          $(this).fadeToggle(500);
+          isImgShrunk = $(this).is(':hidden');
         });
     }); 
 
