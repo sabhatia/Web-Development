@@ -25,25 +25,7 @@
   <script>
     $(document).ready(function() {
 
-        var isImgShrunk = true;
         var prevImg = null;
-
-
-        function hideFullImage ()
-        {
-          console.log('hideFullImage')
-          $("#expanded-image").fadeOut(500);
-          isImgShrunk = true;
-
-        }
-
-        function displayFullImage (lastImage, currentImage) 
-        {
-          console.log('displayFullImage:\n<Prev: ' + prevImg + '> <Curr: ' + currentImage)
-          $("#expanded-image").html("<img src='" + currentImage + "' alt='Expanded Image' class='full-image'>");
-          $("#expanded-image").fadeIn(500) // Fade in animation (optional)
-          isImgShrunk = false;
-        }
 
         /* CLICK: Thumbnail */
         $("#thumbnails > li > img").click(function() {
@@ -56,20 +38,13 @@
           */
           if (prevImg != smallImg) {
 
-            /* Hide the old image - if it is displayed */
-            if (!isImgShrunk) {
-              fullImg.hide();
-              isImgShrunk = true;
-            }
-
             /* Show the expanded image for the current thumbnail */
-           fullImg.html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
-            fullImg.fadeIn(500) // Fade in animation (optional)
-            isImgShrunk = false;
+            fullImg.html("<img src='" + smallImg + "' alt='Expanded Image' class='full-image'>");
+            fullImg.hide(); // Do this so you fadein from a clean slate
+            fullImg.fadeIn(500) 
           } else {
             /* Same thumbnail - just toggle the visibility */
             $("#expanded-image").fadeToggle(500);
-            isImgShrunk = fullImg.is(':hidden');
           }
 
           /* Lets record the image we clicked for next time */
@@ -79,7 +54,6 @@
         /* CLICK: Full-Image */
         $("#expanded-image").click(function() {
           $(this).fadeToggle(500);
-          isImgShrunk = $(this).is(':hidden');
         });
     }); 
 
